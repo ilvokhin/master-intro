@@ -1,0 +1,72 @@
+\documentclass[12pt]{report}
+
+\usepackage{fullpage}
+\usepackage{multicol, multirow}
+\usepackage{tabularx}
+\usepackage{standalone}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage[T1, T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{indentfirst}
+% setup  page fields
+\usepackage{geometry}
+\geometry{left=25mm}
+\geometry{right=20mm}
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\filcenter\bfseries}{\thechapter.}{1em}{}
+\titleformat{\section}{\filcenter\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\filcenter\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\filcenter\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\filcenter\bfseries}{\paragraph}{1em}{}
+
+\usepackage{tocloft}
+% add dots for chapters
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand\cftchapfont{\mdseries}
+\renewcommand\cftchappagefont{\mdseries}
+% add dot after chapter number
+\renewcommand{\cftchapaftersnum}{.}
+% clickable toc
+\usepackage{hyperref}
+
+\begin{document}
+
+\tableofcontents
+
+\chapter{Математический анализ}
+\section{Аксиоматика и общие свойства множества действительных чисел. Полнота множества действительных чисел.}
+
+\chapter{Линейная алгебра и аналитическая геометрия}
+
+\chapter{Дискретная математика}
+
+\chapter{Теория вероятностей и математическая статистика}
+
+\chapter{Теория случайных процессов и основы теории массового обслуживания}
+
+\chapter{Методы оптимизации и основы теории управления}
+
+\chapter{Метематическое моделирование}
+
+\chapter{Механика}
+
+\chapter{Численные методы}
+
+\chapter{Программирование для ЭВМ}
+
+\chapter{Программные и аппаратные средства информатики}
+
+\chapter{Операционные системы и сети ЭВМ}
+
+\chapter{Базы данных}
+
+\end{document}
+
