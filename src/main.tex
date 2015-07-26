@@ -46,6 +46,7 @@
 
 % Some usefull macro:
 \newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
 
 \begin{document}
 
@@ -232,6 +233,260 @@ $$
 
 % Источник: Зорич, страницы 41 - 50.
 % Там можно найти доказательства некоторых следствий.
+
+\section{Предел последовательности. Предел функции. Их свойства.}
+\subsection{Предел последовательности}
+\begin{definition}
+Число $A$ называется пределом числовой последовательности $\{x_n\}$,
+если для любой окрестности $V(A)$ точки $A$, существует такой номер $N$
+(выбираемый в зависимости от $V(A)$), что все члены последовательности,
+с номерами больше $N$ лежат в указанной окрестности точки $A$.
+\end{definition}
+
+Другое, более распространенное определение:
+
+\begin{definition}
+Число $A \in \R$ называется пределом последовательности $\{x\}_n$, если
+для $\forall \varepsilon > 0$ существует номер $N$, такой, что при всех
+$n > N$ имеем $|x_n - A| < \varepsilon$.
+\end{definition}
+
+Последнее определение в логической символике выглядит следующим образом:
+$$
+  \lim\limits_{n \rightarrow \infty} x_n = A
+    \Leftrightarrow
+  \forall \varepsilon > 0, \exists N \in \N: \forall n > N: |x_n - A| < \varepsilon.
+$$
+
+Последовательность, имеющая предел называется сходящейся.
+Последовательность, не имеющая предела, называется расходящейся.
+
+\subsection{Свойства предела последовательности}
+
+\subsubsection{Общие свойства}
+Последовательность, принимающая только одно значение называется постоянной.
+
+\begin{definition}
+Если существует число $A$ и номер $N$, такие, что
+$x_n = A$, при $\forall n > N$, то последовательность
+$\{x_n\}$ называется финально постоянной.
+\end{definition}
+
+\begin{definition}
+Последовательность $\{x_n\}$ называется ограниченной, если существует
+такое число $M$, что $|x_n| < M, \forall n \in \N$.
+\end{definition}
+
+\begin{theorem}
+  \begin{enumerate}
+  \item Финально постоянная последовательность сходится.
+    \item Любая окрестность предела последовательности содержит все члены последовательности,
+    за исключением конечного их числа.
+    \item Последовательность не может иметь двух различных пределов.
+    \item Сходящаяся последовательность ограничена.
+  \end{enumerate}
+\end{theorem}
+
+\subsubsection{Предельный переход и арифметические операции}
+
+\begin{definition}
+Если $\{x_n\}$ и $\{y_n\}$ --- числовые последовательности, то их суммой,
+произведением, частным называются соответственно последовательности:
+$$
+\{(x_n + y_n)\}, \{(x_n \cdot y_n)\}, \left\{\dfrac{x_n}{y_n}\right\}.
+$$
+Частое определено при $\{y_n\} \ne 0$.
+\end{definition}
+
+\begin{theorem}
+Пусть $\{x_n\}$ и $\{y_n\}$ --- числовые последовательности.
+Если $A = \lim\limits_{n\rightarrow\infty} x_n, B = \lim\limits_{n\rightarrow\infty} y_n$, то
+\begin{enumerate}
+  \item $\lim\limits_{n\rightarrow\infty} x_n + y_n = A + B$.
+  \item $\lim\limits_{n\rightarrow\infty} x_n \cdot y_n = A \cdot B$.
+  \item $\lim\limits_{n\rightarrow\infty} x_n / y_n = A / B$, если $y_n \ne 0\, (n = 1, 2, \dots), B \ne 0$.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{Предельный переход и неравенства}
+
+\begin{theorem}
+\begin{enumerate}
+  \item Пусть $\{x_n\}$ и $\{y_n\}$ --- две сходящиеся последовательности, причем
+    $\lim\limits_{n\rightarrow\infty} x_n = A, \lim\limits_{n\rightarrow\infty} y_n = B.$
+    Если $A < B$, то найдется такой номер $N \in \N$, что при любом $n > N$ будет выполнятся
+    $x_n < y_n$.
+  \item Пусть последовательности $\{x_n\}$, $\{y_n\}$, $\{z_n\}$ таковы, что $x_n \le y_n \le z_n, \forall n \in \N$.
+    Если при этом $\{x_n\}$, $\{z_n\}$ сходятся к одному и тому же приделу, то последовательность
+    $\{y_n\}$ так же сходится к этому пределу.
+\end{enumerate}
+\end{theorem}
+
+\subsection{Предел функции}
+\begin{definition}
+Точка $x$ называется предельной точкой множества $A$, если всякая проколотая окрестность точки
+$x$ имеет с $A$ непустое пересечение.
+\end{definition}
+
+\begin{definition}
+Пусть $E$ --- некоторое подмножество множества $\R$, а $a$ --- предельная точка множества
+$E$. Пусть $f: E \rightarrow \R$ --- вещественная функция, определенная на $E$.
+
+
+Тогда $A$ является пределом функции $f$ при $x$ стремящемся к $a$, если для
+$\forall \varepsilon > 0, \exists \delta > 0$, такое что для любой точки 
+$x \in E$ такой, что $ 0 < |x - a| < \delta$, выполнено отношение $|f(x) - A| < \varepsilon$.
+\end{definition}
+
+В логической символике определение выглядит следующим образом:
+$$
+\forall \varepsilon > 0, \exists \delta > 0: \forall x \in E \quad (0 < |x - a| < \delta \Rightarrow |f(x) - A| < \varepsilon).
+$$
+
+\subsection{Свойства предела функции}
+\subsubsection{Общие свойства предела функции}
+\begin{definition}
+  Функцию $f: E \rightarrow R$ принимающая только одно значение называется постоянной.
+\end{definition}
+
+\begin{definition}
+  Функцию $f: E \rightarrow R$ называется финально постоянной если она постоянна в некоторой
+  проколотой окрестности точки $a$, предельной для множества $E$.
+\end{definition}
+
+\begin{theorem}
+  \begin{enumerate}
+    \item $f: E \rightarrow \R$ при $E \ni x \rightarrow a$, есть финально постоянная
+      $A \Rightarrow \lim\limits_{x\rightarrow a} f(x) = A$.
+    \item $\exists \lim\limits_{x\rightarrow a} f(x) = A \Rightarrow f$ --- финально ограничена при $E \ni x \rightarrow a$.
+    \item $\lim\limits_{x\rightarrow a} f(x) = A_1 \land \lim\limits_{x\rightarrow a} f(x) = A_2 \Rightarrow A_1 = A_2$.
+  \end{enumerate}
+\end{theorem}
+
+\subsection{Предельный переход и арифметические операции}
+\begin{definition}
+  Если две функции $f: E \rightarrow \R$, $g: E \rightarrow \R$, то их суммой, произведением и частным
+  называются функции:
+  \begin{gather*}
+    (f + g)(x) = f(x) + g(x), \\
+    (f \cdot g)(x) = f(x) \cdot g(x), \\
+    \left(\dfrac{f}{g}(x)\right) = \dfrac{f(x)}{g(x)}, g(x) \ne 0, x \in E.
+  \end{gather*}
+\end{definition}
+
+\begin{theorem}
+  Пусть две функции $f: E \rightarrow \R$, $g: E \rightarrow \R$ с общей областью определения.
+  Если $\lim\limits_{x\rightarrow a} f(x) = A$ и $\lim\limits_{x\rightarrow a} g(x) = B$, то
+  \begin{enumerate}
+    \item $\lim\limits_{x\rightarrow a} (f + g)(x) = A + B$.
+    \item $\lim\limits_{x\rightarrow a} (f \cdot g)(x) = A \cdot B$.
+    \item $\lim\limits_{x\rightarrow a} \dfrac{f}{g}(x) = \dfrac{A}{B}$, если $g(x) \ne 0, B \ne 0$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Функцию $f: E \rightarrow \R$ называют бесконечно малой при $E \ni x \rightarrow a$,
+  если $\lim\limits_{x\rightarrow a} f(x) = 0$.
+\end{definition}
+
+\begin{theorem}
+\begin{enumerate}
+  \item Если $\alpha: E \rightarrow \R$ и $\beta: E \rightarrow \R$ --- бесконечно малые функции,
+    при $x \rightarrow a$, то их сумма $\alpha + \beta$ --- тоже бесконечно малая функция при $x \rightarrow a$.
+  \item Если $\alpha: E \rightarrow \R$ и $\beta: E \rightarrow \R$ --- бесконечно малые функции,
+    при $x \rightarrow a$, то их произведение $\alpha \cdot \beta$ --- тоже бесконечно малая функция при $x \rightarrow a$.
+  \item Если $\alpha: E \rightarrow \R$ --- бесконечно малая функция,
+    а $\beta: E \rightarrow \R$ --- финально ограниченная функция,
+    при $x \rightarrow a$, то их произведение $\alpha \cdot \beta$ --- бесконечно малая функция при $x \rightarrow a$.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{Предельный переход и неравенства}
+\begin{theorem}
+  \begin{enumerate}
+    \item  Если две функции $f: E \rightarrow \R$, $g: E \rightarrow \R$ таковы,
+      что $\lim\limits_{x\rightarrow a} f(x) = A$ и $\lim\limits_{x\rightarrow a} g(x) = B$ и
+      $A < B$, то найдется проколотая окрестность $U$ точки $a$ в множестве $E$, в любой
+      точке которой выполнено неравенство $f(x) < g(x)$.
+    \item  Если между функциями  $f: E \rightarrow \R$, $g: E \rightarrow \R$, $g: E \rightarrow \R$,
+      имеет место соотношение $f(x) \le g(x) \le h(x)$ и
+      $\lim\limits_{x\rightarrow a} f(x) = \lim\limits_{x\rightarrow a} h(x) = C$,
+      то $\exists \lim\limits_{x\rightarrow a} g(x)$ и он равен $C$.
+  \end{enumerate}
+\end{theorem}
+
+% Источники:
+% 1. Зорич, страницы 92-133
+% 2. https://ru.wikipedia.org/wiki/Предельная_точка
+
+\section{Непрерывность функции. Свойства непрерывных функций. Теорема Вейерштрасса о максимальном значении.}
+
+Описательно говоря, функция $f$ --- непрерывна в точке $a$, если ее значение $f(x)$ по мере приближения
+аргумента $x$ к точке приближается к значению $f(a)$ функции в самой точке $a$.
+
+\begin{definition}
+Функция $f$ называется непрерывной в точке $a$, если для любой
+окрестности $V(f(a))$ значения $f(a)$ функции точки $a$, найдется такая
+окрестность $U(a)$ точки $a$, образ которой при отображении $f$ содержится
+в $V(f(a))$.
+\end{definition}
+
+Формально-логическая запись определения:
+$$
+\forall \varepsilon > 0, \exists \delta > 0:
+|x - a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon.
+$$
+
+
+\subsection{Свойства непрерывных функций}
+\subsubsection{Локальный свойства}
+Локальный свойства --- определяются поведением функции в сколь угодно
+малой окрестности точки области определения.
+
+\begin{theorem}
+Пусть $f: E \rightarrow \R$ --- непрерывная в точке $a \in E$ функция.
+Тогда справедливы следующие утверждения:
+\begin{enumerate}
+  \item Функция $f$ --- ограничена в некоторой окрестности $U_E(a)$ точки $a$.
+  \item Если $f(a) \ne 0$ --- то в некоторой окрестности $U_E(a)$ точки $a$,
+    все значения функции положительны или отрицательны вместе с $f(a)$.
+  \item Если функция $g: U_E(a) \rightarrow \R$ определена в некоторой окрестности
+    точки $a$, и, как и $f$ --- непрерывна в точке $a$, тогда
+    \begin{enumerate}
+      \item $(f + g)(x) := f(x) + g(x)$,
+      \item $(f \cdot g)(x) := f(x) \cdot g(x)$,
+      \item $\dfrac{f}{g}(x) := dfrac{f(x)}{g(x)}$, $(g(x) \ne 0)$
+    \end{enumerate}
+    определены в некоторой окрестности точки $a$ и непрерывны в ней.
+  \item Если функция $g: Y \rightarrow \R$ непрерывна в точке $b \in Y$,
+    а функция $f: E \rightarrow Y$, $f(a) = b$ и непрерывна в точке $a$,
+    то композиция $(g \circ f)$ определена на $E$ и так же непрерывна в точке $a$.
+\end{enumerate}
+\end{theorem}
+
+\subsubsection{Глобальные свойства}
+Глобальные --- свойства, связанные со всей областью определения функции.
+
+\begin{theorem}[Теорема Больцано-Коши о промежуточном значении]
+Если функция непрерывная на отрезке принимает на его концах
+значения разных знаков, то на отрезке есть точка, в которой
+функция обращается в нуль.
+
+В логической символике:
+$$
+f \in [a, b] \land f(a) \cdot f(b) < 0 \Rightarrow \exists c \in [a, b]: f(c) = 0.
+$$
+\end{theorem}
+
+\subsection{Теорема Вейерштрасса о максимальном значении}
+\begin{theorem}[Теорема Вейерштрасса о максимальном значении]
+Функция, непрерывная на отрезке, ограничена на нем.
+При этом на отрезке есть точка, где функция принимает максимальное
+значение и функция принимает минимальное значение.
+\end{theorem}
+
+% Источники:
+% 1. Зорич, страницы 175-
 
 \chapter{Линейная алгебра и аналитическая геометрия}
 
