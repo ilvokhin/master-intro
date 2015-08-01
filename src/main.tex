@@ -49,6 +49,7 @@
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
 \newcommand{\Ri}{\mathcal R}
+\newcommand{\B}{\mathcal B}
 
 \begin{document}
 
@@ -698,12 +699,82 @@ $f(x)$ функция $f(\phi(t))\varphi'(t)$ --- непрерывна на от
 $$
 \int\limits_a^b f(x) \, dx = \int\limits_\alpha^\beta f(\varphi(t)) \varphi'(t)\, dt.
 $$
-
 \end{theorem}
 
 % Источники:
 % 1. https://ru.wikipedia.org/wiki/Неопределенный_интеграл
-% 2. Зорич 385-
+% 2. Зорич, страницы 385-427
+
+\subsection{Функции многих переменных. Их предел и непрерывность.}
+
+\begin{definition}
+Условимся через $\R^m$ обозначать множество всех упорядоченных
+наборов $(x^1, \dots, x^m)$ состоящих из $m$ действительных
+чисел $x^i \in \R\,(i=1,\dots,m)$. Каждый набор обозначается буквой $x$
+и называется точкой множества $R^m$.
+\end{definition}
+
+Расстояние между точками $x_1$ и $x_2$:
+$$
+d(x_1, x_2) = \sqrt{ \sum\limits_{i=1}^{m} (x_1^i - x_2^i)^2 }
+$$
+
+Функция $d: \R^m \times \R^m \rightarrow \R$ обладает свойствами:
+\begin{enumerate}
+\item $d(x_1, x_2) \ge 0$;
+\item $d(x_1, x_2) = 0 \Rightarrow x_1 = x_2$;
+\item $d(x_1, x_2) = d(x_2, x_1)$;
+\item $d(x_1, x_3) \le d(x_1, x_2) + d(x_2, x_3).$
+\end{enumerate}
+
+\begin{definition}
+d --- метрика или расстояние в $X$.
+\end{definition}
+
+\subsection{Предел}
+\begin{definition}
+Совокупность $\B$ множества $\B \subset X$ множества $X$ будем называть
+базой в множестве $X$, если выполнены два условия:
+\begin{enumerate}
+\item $\forall B \in \B (B \ne \varnothing$)
+\item $\forall B_1 \in \B, \forall B_2 \in \B \quad \exists B \in \B: B \subset B_1 \cup B_2$.
+\end{enumerate}
+
+Проще говоря, элементы совокупности $\B$ --- непустые множества и в пересечении любых
+двух из них содержится элемент из той же совокупности.
+\end{definition}
+
+\begin{definition}
+Точка $A \in \R^m$ называется пределом отображения $f: X \rightarrow \R^m$
+по базе $\B$ в $X$, если для любой окрестности $V(A)$ этой точки, найдется элемент
+$B \in \B$, образ которого $f(B)$ содержится в $V(A)$.
+\end{definition}
+
+$$
+(\lim\limits_{\B} f(x) = A) \Leftrightarrow \forall V(A), \exists B \in \B: (f(B) \subset V(A).
+$$
+
+Или в более привычном виде:
+$$
+(\lim\limits_{\B} f(x) = A) \Leftrightarrow \forall \varepsilon, \exists B \in \B, \forall x \in B: d(f(x), A) < \varepsilon.
+$$
+
+\subsection{Непрерывность}
+Пусть $E$ --- множество в пространстве $R^m$ и $f: E \rightarrow R^n$.
+
+\begin{definition}
+Функция $f: E \rightarrow R^n$ называется непрерывной в точке $a \in E$,
+если для любой окрестности $V(f(a)) \in R^n$ найдется такая окрестность
+$U(a) \in E$, что ее образ $f(U(a)) \subset V(f(a))$.
+\end{definition}
+
+Или тоже самое:
+$$
+\forall \varepsilon > 0, \exists \delta > 0, \forall x \in E: d(x, a) < \delta \Rightarrow d(f(x), f(a)) < \varepsilon.
+$$
+
+% Источники:
+% Зорич, страницы 477-491
 
 \chapter{Линейная алгебра и аналитическая геометрия}
 
